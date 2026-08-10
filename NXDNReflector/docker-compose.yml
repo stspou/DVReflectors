@@ -1,0 +1,16 @@
+services:
+  nxdnreflector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: nxdnreflector
+
+    restart: unless-stopped
+
+    ports:
+      - "41400:41400/udp"
+
+    volumes:
+      - ./NXDNReflector.ini:/opt/NXDNReflector/NXDNReflector.ini
+      - ./NXDN.csv:/opt/NXDNReflector/NXDN.csv
